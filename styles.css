@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+
+/* 1) Modelo de cajas: aplicar box-sizing globalmente */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Base */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0f1113;
+    color: #e6eef6;
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    line-height: 1.6;
+
+}
+
+header {
+    text-align: center;
+    padding: 40px 20px 10px;
+}
+
+h1 {
+    color: #4fc3f7;
+    margin: 0 0 8px 0;
+    font-size: 2.4rem;
+    letter-spacing: 2px;
+}
+
+/* Navegación */
+nav {
+    text-align: center;
+    margin: 18px 0 24px;
+}
+
+nav a {
+    color: #4fc3f7;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background-color 0.15s, color 0.15s, transform 0.12s;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    color: #fff;
+    background-color: rgba(79, 195, 247, 0.08);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* Focus styles accesibles para keyboard navigation */
+nav a:focus,
+nav a:focus-visible {
+    outline: 3px solid rgba(79, 195, 247, 0.22);
+    outline-offset: 3px;
+}
+
+/* Secciones principales y cajas */
+section,
+.content-box {
+    max-width: 980px;
+    margin: 28px auto;
+    background: #181818;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #222;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+section h2,
+.content-box h2 {
+    color: #9fe7ff;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.05rem;
+}
+
+/* Productos: usar grid para organizar los items */
+#productos ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+/* Cada producto: caja claramente delimitada (clase .product-item) */
+.product-item {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Outline para elementos enfocables (mejora accesibilidad) */
+.product-item:focus,
+.product-item:focus-visible {
+    box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.08), 0 8px 18px rgba(0, 0, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Alternar estilo con nth-child para destacar filas */
+#productos ul li:nth-child(odd) {
+    border-color: rgba(79, 195, 247, 0.06);
+}
+
+#productos ul li:nth-child(even) {
+    border-color: rgba(255, 255, 255, 0.02);
+}
+
+.product-item h3 {
+    margin: 6px 0 0;
+    font-size: 1.15rem;
+    color: #dff7ff;
+}
+
+.product-item p {
+    margin: 8px 0 0;
+    text-align: center;
+    color: #cfeaf6;
+}
+
+.product-item img {
+    width: 100%;
+    height: auto;
+    max-width: 320px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6);
+}
+
+/* Footer */
+footer {
+    margin-top: 18px;
+    background: #181818;
+    padding: 18px 12px;
+    text-align: center;
+    border-top: 1px solid #222;
+    font-size: 0.95rem;
+}
+
+/* Links en footer */
+footer nav a {
+    color: #8fe0ff;
+}
+
+/* Pequeños ajustes responsivos */
+@media (max-width: 520px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px 6px;
+    }
+
+    section,
+    .content-box {
+        padding: 16px;
+        margin: 16px;
+    }
+}
